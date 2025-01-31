@@ -7,7 +7,7 @@ const menuEl = questionContainer.innerHTML
 const answers = {
     1: {
         text: 'Ты получил(а) сообщение в социальной сети от незнакомого человека, который предлагает тебе "супер-выгодный" способ заработка в интернете. Что ты сделаешь?',
-        image: '../assets/image/question1-image.jpg',
+        image: '../Security-Testing/assets/image/question1-image.jpg',
         options: [
             { text: 'Немедленно соглашусь, ведь это шанс разбогатеть!', isCorrect: false, advice: 'Представь себе, что к тебе на улице подходит незнакомый человек и предлагает отдать ему все свои сбережения, обещая взамен в десять раз больше. Скорее всего, ты бы отказался(лась), верно? В интернете действуют те же правила. Если предложение кажется слишком хорошим, чтобы быть правдой, скорее всего, это обман. В данном случае, согласившись на предложение незнакомца в интернете, ты рискуешь потерять свои личные данные, деньги или даже стать жертвой киберпреступления.' },
             { text: 'Проигнорирую сообщение и заблокирую отправителя.', isCorrect: true, advice: 'Отличный выбор! Игнорирование и блокировка отправителя это самое разумное решение. Помните, ваше время и безопасность ценны, и не стоит тратить их на общение с подозрительными личностями.' },
@@ -16,7 +16,7 @@ const answers = {
     },
     2: {
         text: 'Твой друг(подруга) прислал(а) тебе ссылку на забавный тест "Узнай, кто ты из персонажей современного кино". Ссылка выглядит немного странно. Как поступишь?',
-        image: '../assets/image/question2-image.jpg',
+        image: '../Security-Testing/assets/image/question2-image.jpg',
         options: [
             { text: 'Сразу же пройду тест, ведь это интересно!', isCorrect: false, advice: 'За ссылкой на "интересный тест" может скрываться фишинговый сайт, который украдет твой логин и пароль от социальной сети или других важных аккаунтов. Мошенники могут использовать такие сайты для распространения вирусов или получения доступа к твоим личным данным, включая фотографии, сообщения и финансовую информацию. В результате ты можешь потерять контроль над своим аккаунтом или даже потерять деньги.' },
             { text: 'Спрошу у друга(подруги), уверен(а) ли он(а) в безопасности этой ссылки, и проверю ее с помощью онлайн-сервиса проверки ссылок', isCorrect: true, advice: 'Молодец! Это очень безопасный подход. Даже если ссылка пришла от друга, всегда лучше перестраховаться, ведь аккаунт друга тоже может быть взломан. Проверка ссылки с помощью онлайн-сервиса — это дополнительная мера предосторожности, которая поможет убедиться в ее надежности.' },
@@ -47,8 +47,8 @@ function nextQuestion(questionId) {
     const selectedAnswer = question.options[questionId - 1];
     if (!selectedAnswer) return;
 
-    const adviceImage = selectedAnswer.isCorrect ? '../assets/image/rightAnswer.jpg' : '../assets/image/badAnswer.jpg';
-    menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--blue-shadow)' : 'var(--red-shadow)';
+    const adviceImage = selectedAnswer.isCorrect ? '../Security-Testing/assets/image/rightAnswer.jpg' : '../Security-Testing/assets/image/badAnswer.jpg';
+    menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--grin-shadow)' : 'var(--red-shadow)';
     
     questionContainer.innerHTML = renderAdvice(adviceImage, 100, selectedAnswer.advice);
     questionNumber++;

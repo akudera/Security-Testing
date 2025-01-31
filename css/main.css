@@ -236,7 +236,8 @@
     
     --blue-gradient: linear-gradient(0deg, #000420 0%, #0022ff 100%);
     --blue-shadow: 0 5px 25px 5px #0048FF;
-    --red-shadow: 0 5px 25px 5px #FF0000;
+    --red-shadow: 0 5px 25px 5px #FF3C00;
+    --grin-shadow: 0 5px 25px 5px #008F16;
     --btn-shadow: 0 0 3px 0 #0048ffc5;
     
     --border-btn: 8px;

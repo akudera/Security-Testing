@@ -1,8 +1,9 @@
 .main {
     display: flex;
-    height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
     width: 100vw;
-    padding-block: calc(30vh / 2);
+    padding-block: 180px;
 }
 
 .main__menu {
@@ -11,7 +12,7 @@
     align-items: center;
     width: 533px;
     min-height: 640px;
-    margin-inline: auto;
+    max-height: 750px;
     padding: 22px 20px;
     background-color: white;
     border-radius: var(--border-card);
@@ -107,8 +108,41 @@
 }
 
 @media (max-width: 525px) {
+    .main {
+        padding-block: 70px;
+    }
+    
     .main__menu {
-        margin-inline: 8px;
         padding: 16px 15px;
+    }
+
+    .menu__question-el-container {
+        padding-inline: 8px;
+    }
+
+    .question-answers__btn {
+        text-align: left;
+    }
+
+    .menu__button {
+        position: relative;
+        padding-inline: 40px;
+        text-align: left;
+    }
+
+    .menu__button::after {
+        content: "⟶";
+        position: absolute;
+        right: 40px;
+    }
+}
+
+@media (max-width: 420px) {
+    .menu__button {
+        padding-inline: 20px;
+    }
+
+    .menu__button::after {
+        right: 20px;
     }
 }
