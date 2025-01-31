@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question | Nikita Fedorov project</title>
+    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="css\question.css">
+    <link rel="shortcut icon" href="assets\svg\Faceid.svg" type="image/x-icon">
+</head>
+<body>
+    <main class="main">
+        <div class="main__menu" id="menu">
+            <span class="menu__question-count"><span class="menu__question" id="question-count">1</span>/10</span>
+            <span class="menu__score-info">Очков: <span class="menu__score-info-count">10</span></span>
+            <div class="menu__question-el-container" id="question-container">
+                <img 
+                    class="menu__question-image" 
+                    id="image"
+                    src="/" 
+                    alt="Изображение с деталями вопроса"
+                />
+                <div class="menu__question-text-container">
+                    <span class="question-text-container__situation montserrat-medium">Ситуация: </span><span class="menu__question-text" id="question">Загрузка вопроса...</span>
+                </div>
+                <div class="menu__question-answers">
+                    <button class="question-answers__btn" id="1" onclick="nextQuestion(1)">Текст ответа номер 1</button>
+                    <button class="question-answers__btn" id="2" onclick="nextQuestion(2)">Текст ответа номер 2</button>
+                    <button class="question-answers__btn" id="3" onclick="nextQuestion(3)">Текст ответа номер 3</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./javaScript/main.js"></script>
+</body>
+</html>
