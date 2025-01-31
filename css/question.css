@@ -1,0 +1,114 @@
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding-block: calc(30vh / 2);
+}
+
+.main__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 533px;
+    min-height: 640px;
+    margin-inline: auto;
+    padding: 22px 20px;
+    background-color: white;
+    border-radius: var(--border-card);
+    box-shadow: var(--blue-shadow);
+}
+
+.menu__question-count {
+    font-size: clamp(14px, 3.05vw, 16px);
+    font-family: 'Montserrat-Medium', sans-serif;
+    font-weight: 500;
+    color: var(--light-gray);
+}
+
+.menu__score-info {
+    font-size: clamp(14px, 3.05vw, 16px);
+    font-family: 'Montserrat-Medium', sans-serif;
+    font-weight: 500;
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.menu__question-image {
+    width: clamp(120px, 38.1vw, 200px);
+}
+
+.menu__question-el-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-inline: 15px;
+}
+
+.menu__question-text-container {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3.05vw, 16px);
+}
+
+.menu__question-answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.question-answers__btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3.05vw, 16px);
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: var(--border-btn);
+    border: var(--light-gray) 1px solid;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.question-answers__btn:hover {
+    background-color: #0048ff1a;
+    border-color: #0048ff80;
+    box-shadow: var(--btn-shadow);
+}
+
+
+.menu__advice-image {
+    aspect-ratio: 1/1;
+}
+
+.menu__advice-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3.05vw, 16px);
+}
+
+.menu__button {
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3.05vw, 16px);
+    color: white;
+    background-color: black;
+    border-radius: var(--border-btn);
+    border: none;
+    margin-top: auto;
+    margin-bottom: 40px;
+    padding: 10px 5px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.menu__button:hover {
+    background-color: #0048FF;
+    box-shadow: var(--btn-shadow);
+}
+
+@media (max-width: 525px) {
+    .main__menu {
+        margin-inline: 8px;
+        padding: 16px 15px;
+    }
+}
