@@ -235,9 +235,18 @@
     --light-gray: #7E7E7E;
     
     --blue-gradient: linear-gradient(0deg, #000420 0%, #0022ff 100%);
-    --blue-shadow: 0 5px 25px 5px #0048FF;
-    --red-shadow: 0 5px 25px 5px #FF3C00;
-    --grin-shadow: 0 5px 25px 5px #008F16;
+    --blue-shadow:  0px 0px 20px 4px rgba(0, 72, 255, 0.8), 
+                    0px 30px 50px 5px rgba(0, 72, 255, 0.6), 
+                    0px 90px 80px -10px rgba(0, 72, 255, 0.4), 
+                    0px 150px 110px -10px rgba(0, 72, 255, 0.2);
+    --red-shadow: 0px 0px 20px 4px rgba(255, 60, 0, 0.8), 
+                  0px 30px 50px 5px rgba(255, 60, 0, 0.6), 
+                  0px 90px 80px -10px rgba(255, 60, 0, 0.4), 
+                  0px 150px 110px -10px rgba(255, 60, 0, 0.2);
+    --grin-shadow:  0px 0px 20px 4px rgba(0, 143, 22, 0.8), 
+                    0px 30px 50px 5px rgba(0, 143, 22, 0.6), 
+                    0px 90px 80px -10px rgba(0, 143, 22, 0.4), 
+                    0px 150px 110px -10px rgba(0, 143, 22, 0.2);
     --btn-shadow: 0 0 3px 0 #0048ffc5;
     
     --border-btn: 8px;
@@ -246,10 +255,6 @@
 
 body {
   background-color: var(--dark-gray);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 .montserrat-semiBold {
