@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question | Nikita Fedorov project</title>
-    <link rel="stylesheet" href="css\main.css">
-    <link rel="stylesheet" href="css\question.css">
-    <link rel="shortcut icon" href="assets\svg\Faceid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="..\css\main.css">
+    <link rel="stylesheet" href="..\css\question.css">
+    <link rel="shortcut icon" href="..\assets\svg\Faceid.svg" type="image/x-icon">
 </head>
 <body>
     <main class="main">
         <div class="main__menu" id="menu">
             <span class="menu__question-count"><span class="menu__question" id="question-count">1</span>/10</span>
-            <span class="menu__score-info">Очков: <span class="menu__score-info-count">10</span></span>
+            <span class="menu__score-info">Очков: <span class="menu__score-info-count" id="score">0</span><span class="menu__score-counter" id="score-counter"> +5</span></span>
             <div class="menu__question-el-container" id="question-container">
                 <img 
                     class="menu__question-image" 
@@ -31,6 +31,6 @@
             </div>
         </div>
     </main>
-    <script src="./javaScript/main.js"></script>
+    <script src="../javaScript/main.js"></script>
 </body>
 </html>

@@ -2,9 +2,11 @@
 
 const questionContainer = document.getElementById('question-container')
 const menu = document.getElementById('menu')
+const score = document.getElementById('score')
+const scoreCounter = document.getElementById('score-counter')
 const menuEl = questionContainer.innerHTML
 
-const answers = {
+const questions = {
     1: {
         text: 'Ты получил(а) сообщение в социальной сети от незнакомого человека, который предлагает тебе "супер-выгодный" способ заработка в интернете. Что ты сделаешь?',
         image: '../Security-Testing/assets/image/question1-image.jpg',
@@ -132,37 +134,77 @@ function renderAdvice(src, text) {
     `
 }
 
-function nextQuestion(questionId) {
-    const question = answers[questionNumber];
-    if (!question) return;
+function scoreIncrement() {
+    for (let i = 1; i < 6; i++) {
+        setTimeout(() => {
+            score.textContent = Number(score.textContent) + 1
+        }, i * 100)
+    }
+}
 
-    const selectedAnswer = question.options[questionId - 1];
-    if (!selectedAnswer) return;
+function renderConclusion() {
+    if (Number(score.textContent) % 5 === 0) {
+        const finalScore = score.textContent
+        const questionsPassed = Number(finalScore) / 5
+        const advice = questionsPassed > 5
+        ? 'Отлично! У вас хорошие знания в области интернет-безопасности. Продолжайте быть бдительными в сети, и вы будете в безопасности!🤝'
+        : 'Похоже вы только начинаете свой путь к интернет-грамотности. Помните каждый шаг к повышению своей интернет-осведомленности — это уже победа!😉'
+        menu.style.boxShadow = questionsPassed > 5 ? 'var(--grin-shadow)' : 'var(--red-shadow)'
+        menu.innerHTML = `
+                <h3 class="conclusion">Ваш результат:</h3>
+                <span class="menu__questions-passed">${questionsPassed}/10</span>
+                <span class="menu__final-score">Баллов: <span id="score">${finalScore}</span></span>
+                <p class="menu__final-advice" id="final-advice">${advice}</p>
+                <div class="menu__button-wrapper">
+                    <a href="https://akudera.github.io/Security-Testing/questions/index.html" class="menu__button">Пройти тест еще раз</a>
+                </div>
+                `
+    } else {
+        setTimeout(renderConclusion, 100)
+    }
+}
 
-    const adviceImage = selectedAnswer.isCorrect ? '../Security-Testing/assets/image/feather.png' : '../Security-Testing/assets/image/breakFeather.jpg';
-    menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--grin-shadow)' : 'var(--red-shadow)';
+function nextQuestion(answerId) {
+    const question = questions[questionNumber]
+    if (!question) return
+
+    const selectedAnswer = question.options[answerId - 1]
+    if (!selectedAnswer) {
+        console.error('Некорректный выбор ответа!')
+        return
+    }
+
+    const adviceImage = selectedAnswer.isCorrect ? '../Security-Testing/assets/image/feather.png' : '../Security-Testing/assets/image/breakFeather.jpg'
+    menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--grin-shadow)' : 'var(--red-shadow)'
+    if (selectedAnswer.isCorrect) {
+        scoreIncrement()
+        scoreCounter.style.display = 'inline'
+    }
     
-    questionContainer.innerHTML = renderAdvice(adviceImage, selectedAnswer.advice);
-    questionNumber++;
+    questionContainer.innerHTML = renderAdvice(adviceImage, selectedAnswer.advice)
+    questionNumber++
 }
 
 function renderQuestion() {
-    const question = answers[questionNumber];
-    if (!question) return;
+    const question = questions[questionNumber]
+    if (question) {
+        questionContainer.innerHTML = menuEl
+        menu.style.boxShadow = 'var(--blue-shadow)'
+        scoreCounter.style.display = 'none'
 
-    questionContainer.innerHTML = menuEl;
-    menu.style.boxShadow = 'var(--blue-shadow)'
+        document.getElementById('question-count').textContent = questionNumber
+        document.getElementById('question').textContent = question.text
+        const questionImageEl = document.getElementById('image')
+        questionImageEl.src = question.image
+        questionImageEl.setAttribute('width', 200)
+        questionImageEl.style.aspectRatio = '1/1'
 
-    document.getElementById('question-count').textContent = questionNumber;
-    document.getElementById('question').textContent = question.text;
-    const questionImageEl = document.getElementById('image');
-    questionImageEl.src = question.image;
-    questionImageEl.setAttribute('width', 200);
-    questionImageEl.style.aspectRatio = '1/1';
-
-    question.options.forEach((option, index) => {
-        document.getElementById(`${index + 1}`).textContent = option.text;
-    });
+        question.options.forEach((option, index) => {
+            document.getElementById(`${index + 1}`).textContent = option.text
+        })
+    } else {
+        renderConclusion()
+    }
 }
 
 renderQuestion()

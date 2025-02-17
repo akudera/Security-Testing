@@ -29,6 +29,14 @@ html {
     color: var(--light-gray);
 }
 
+.menu__score-counter {
+    display: none;
+    font-size: clamp(14px, 3.05vw, 16px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    color: var(--green);
+}
+
 .menu__score-info {
     font-size: clamp(14px, 3.05vw, 16px);
     font-family: 'Montserrat-Medium', sans-serif;
@@ -103,6 +111,7 @@ html {
 .menu__button-wrapper {
     display: flex;
     justify-content: center;
+    text-align: center;
     width: 100%;
     margin-top: auto;
 }
@@ -111,6 +120,7 @@ html {
     width: 80%;
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(14px, 3.05vw, 16px);
+    text-decoration: none;
     color: white;
     background-color: black;
     border-radius: var(--border-btn);
@@ -131,6 +141,34 @@ html {
     outline: none;
     background-color: #0048FF;
     box-shadow: var(--btn-shadow);
+}
+
+.conclusion {
+    font-family: 'Montserrat-Medium', sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 3.43vw, 18px);
+    color: var(--light-gray);
+    margin-block: 20px 8px
+}
+
+.menu__questions-passed {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: clamp(16px, 3.43vw, 18px);
+}
+
+.menu__final-score {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: clamp(16px, 3.43vw, 18px);
+    margin-bottom: 20px;
+}
+
+.menu__final-advice {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: clamp(16px, 3.43vw, 18px);
+    margin-inline: 15px;
 }
 
 @media (max-width: 525px) {

@@ -160,13 +160,6 @@
  }
  
  /**
-   Нормализация высоты элемента ссылки при его инспектировании в DevTools
-  */
- a:where([class]) {
-   display: inline-flex;
- }
- 
- /**
    Курсор-рука при наведении на элемент
   */
  button,
@@ -233,6 +226,8 @@
     --dark-gray: #090909;
     --gray: #1F1F1F;
     --light-gray: #7E7E7E;
+    --green: #008f16;
+    --red: #ff3c00;
     
     --blue-gradient: linear-gradient(0deg, #000420 0%, #0022ff 100%);
     --blue-shadow:  0px 0px 20px 4px rgba(0, 72, 255, 0.8), 
