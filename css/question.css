@@ -203,6 +203,10 @@ html {
         position: absolute;
         right: 40px;
     }
+
+    .menu__advice-image {
+        width: 140px;
+    }
 }
 
 @media (max-width: 420px) {
