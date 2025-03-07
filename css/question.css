@@ -200,8 +200,12 @@ html {
         right: 40px;
     }
 
-    .menu__advice-image {
+    .feather {
         width: 140px;
+    }
+    
+    .brokenFeather {
+        width: 210px
     }
 }
 

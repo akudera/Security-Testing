@@ -105,13 +105,14 @@ const questions = {
 
 let questionNumber = 1
 
-function renderAdvice(src, text, width) {
+function renderAdvice(src, imgClass, text, width, height) {
     return `
         <img 
         src="../assets/image/${src}.png" 
         alt="Картинка совета" 
-        class="menu__advice-image"
+        class="menu__advice-image ${imgClass}"
         width="${width}"
+        height="${height}"
         />
         <p class="menu__advice-text">${text}</p>
         <div class="menu__button-wrapper"> 
@@ -160,15 +161,17 @@ function nextQuestion(answerId) {
         return
     }
 
-    const adviceImage = selectedAnswer.isCorrect ? 'feather' : 'breakFeather'
+    const adviceImage = selectedAnswer.isCorrect ? 'feather' : 'brokenFeather'
+    const imgClass = selectedAnswer.isCorrect ? 'feather' : 'brokenFeather'
     const imgWidth = selectedAnswer.isCorrect ? '180' : '280'
+    const imgHeight = selectedAnswer.isCorrect ? '180' : '137.3'
     menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--grin-shadow)' : 'var(--red-shadow)'
     if (selectedAnswer.isCorrect) {
         scoreIncrement()
         scoreCounter.style.display = 'inline'
     }
     
-    questionContainer.innerHTML = renderAdvice(adviceImage, selectedAnswer.advice, imgWidth)
+    questionContainer.innerHTML = renderAdvice(adviceImage, imgClass, selectedAnswer.advice, imgWidth, imgHeight)
     questionNumber++
 }
 
