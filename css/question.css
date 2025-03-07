@@ -77,6 +77,7 @@ html {
 .question-answers__btn {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(14px, 3.05vw, 16px);
+    color: black;
     width: 100%;
     padding: 5px 10px;
     border-radius: var(--border-btn);
