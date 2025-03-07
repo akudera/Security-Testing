@@ -99,11 +99,6 @@ html {
     box-shadow: var(--btn-shadow);
 }
 
-
-.menu__advice-image {
-    aspect-ratio: 1/1;
-}
-
 .menu__advice-text {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(16px, 3.43vw, 18px);

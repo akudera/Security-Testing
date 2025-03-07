@@ -105,14 +105,13 @@ const questions = {
 
 let questionNumber = 1
 
-function renderAdvice(src, text) {
+function renderAdvice(src, text, width) {
     return `
         <img 
-        src="../assets/image/${src}.jpg" 
+        src="../assets/image/${src}.png" 
         alt="Картинка совета" 
         class="menu__advice-image"
-        width="180"
-        srcset="../assets/image/${src}.jpg 1x, ../assets/image/@2x/${src}@2x.jpg 2x, ../assets/image/@3x/${src}@3x.jpg 3x"
+        width="${width}"
         />
         <p class="menu__advice-text">${text}</p>
         <div class="menu__button-wrapper"> 
@@ -162,13 +161,14 @@ function nextQuestion(answerId) {
     }
 
     const adviceImage = selectedAnswer.isCorrect ? 'feather' : 'breakFeather'
+    const imgWidth = selectedAnswer.isCorrect ? '180' : '280'
     menu.style.boxShadow = selectedAnswer.isCorrect ? 'var(--grin-shadow)' : 'var(--red-shadow)'
     if (selectedAnswer.isCorrect) {
         scoreIncrement()
         scoreCounter.style.display = 'inline'
     }
     
-    questionContainer.innerHTML = renderAdvice(adviceImage, selectedAnswer.advice)
+    questionContainer.innerHTML = renderAdvice(adviceImage, selectedAnswer.advice, imgWidth)
     questionNumber++
 }
 
@@ -182,8 +182,7 @@ function renderQuestion() {
         document.getElementById('question-count').textContent = questionNumber
         document.getElementById('question').textContent = question.text
         const questionImageEl = document.getElementById('image')
-        questionImageEl.src = `../assets/image/${question.image}.jpg`
-        questionImageEl.srcset = `../assets/image/${question.image}.jpg 1x, ../assets/image/@2x/${question.image}@2x.jpg 2x, ../assets/image/@3x/${question.image}@3x.jpg 3x`
+        questionImageEl.src = `../assets/image/${question.image}.png`
         questionImageEl.setAttribute('width', 200)
         questionImageEl.style.aspectRatio = '1/1'
 
